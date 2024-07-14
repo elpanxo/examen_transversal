@@ -70,8 +70,8 @@ def ver_estadisticas():
 
     print(f"Sueldo más alto: ${sueldo_maximo}")
     print(f"Sueldo más bajo: ${sueldo_minimo}")
-    print(f"Promedio de sueldo: ${promedio_sueldos}:.2f")
-    print(f"Media gemetrica de sueldos: ${media_geometrica:.2f}")
+    print(f"Promedio de sueldo: ${promedio_sueldos:.2f}")
+    print(f"Media geometrica de sueldos: ${media_geometrica:.2f}")
 
 # Funcion para generar reporte de sueldo con descuento
 def generar_reporte_csv():
@@ -83,15 +83,15 @@ def generar_reporte_csv():
         writer = csv.writer(file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
         writer.writerow(['Nombre empleado', 'Sueldo base', 'Descuento salud', 'Descuento AFP', 'Sueldo líquido'])
 
-    for i in range(10):
-        sueldo_base = sueldos[i]
-        descuento_salud = sueldo_base * 0.07
-        descuento_afp = sueldo_base * 0.12
-        sueldo_liquido = sueldo_base - descuento_salud - descuento_afp
+        for i in range(10):
+            sueldo_base = sueldos[i]
+            descuento_salud = sueldo_base * 0.07
+            descuento_afp = sueldo_base * 0.12
+            sueldo_liquido = sueldo_base - descuento_salud - descuento_afp
 
-        writer.writerow([trabajadores[i], sueldo_base, descuento_salud, descuento_afp, sueldo_liquido])
+            writer.writerow([trabajadores[i], sueldo_base, descuento_salud, descuento_afp, sueldo_liquido])
 
-        print("Reporte de sueldos generado y guardado en 'reporte_sueldos.csv'." )
+    print("Reporte de sueldos generado y guardado en 'reporte_sueldos.csv'." )
 
 # Menu principal de opciones
 while True:
@@ -107,11 +107,11 @@ while True:
     if opcion == '1':
         asignar_sueldos_aleatorios()
     elif opcion == '2':
-        clasificar_y_mostrar_reporte
+        clasificar_y_mostrar_reporte()  # Llamada corregida
     elif opcion == '3':
-        ver_estadisticas
+        ver_estadisticas()  # Llamada corregida
     elif opcion == '4':
-        generar_reporte_csv
+        generar_reporte_csv()  # Llamada corregida
     elif opcion == '5':
         print("Saliendo del programa...")
         print("Desarrollado por Francisco Agüero")
